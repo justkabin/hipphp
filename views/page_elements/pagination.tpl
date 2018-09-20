@@ -1,0 +1,1 @@
+{*use pagination function in helpers.php*}

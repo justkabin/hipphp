@@ -1,0 +1,79 @@
+/**
+ * hip-php
+ *
+ * php framework
+ *
+ * PHP version 7
+ *
+ * LICENSE: This source file is subject to version 3.01 of the PHP license
+ * that is available through the world-wide-web at the following URI:
+ * http://www.php.net/license/3_01.txt.  If you did not receive a copy of
+ * the PHP License and are unable to obtain it through the web, please
+ * send a note to license@php.net so we can mail you a copy immediately.
+ *
+ * @package    hip-php
+ * @author     Shane Barron <admin@hipphp.com>
+ * @copyright  2018 The hip-php group
+ * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
+ * @version    .8
+ * @link       http://hipphp.com
+ */
+
+@for $i from 0 through 50 {
+    .pt#{$i} {
+        padding-top:#{$i}px !important;
+    }
+    .pr#{$i} {
+        padding-right:#{$i}px !important;
+    }
+    .pb#{$i} {
+        padding-bottom:#{$i}px !important;
+    }
+    .pl#{$i} {
+        padding-left:#{$i}px !important;
+    }
+    .pv#{$i} {
+        padding-top:#{$i}px !important;
+        padding-bottom: #{$i}px !important;
+    }
+    .ph#{$i} {
+        padding-left:#{$i}px !important;
+        padding-right:#{$i}px !important;
+    }
+    .pa#{$i} {
+        padding-top:#{$i}px !important;
+        padding-bottom: #{$i}px !important;
+        padding-left:#{$i}px !important;
+        padding-right:#{$i}px !important;
+    }
+
+    .mt#{$i} {
+        margin-top:#{$i}px !important;
+    }
+    .mr#{$i} {
+        margin-right:#{$i}px !important;
+    }
+    .mb#{$i} {
+        margin-bottom:#{$i}px !important;
+    }
+    .ml#{$i} {
+        margin-left:#{$i}px !important;
+    }
+    .mv#{$i} {
+        margin-top:#{$i}px !important;
+        margin-bottom: #{$i}px !important;
+    }
+    .mh#{$i} {
+        margin-left:#{$i}px !important;
+        margin-right:#{$i}px !important;
+    }
+    .ma#{$i} {
+        margin-top:#{$i}px !important;
+        margin-bottom: #{$i}px !important;
+        margin-left:#{$i}px !important;
+        margin-right:#{$i}px !important;
+    }
+    .br#{$i} {
+        border-radius:#{$i}px;
+    }
+}

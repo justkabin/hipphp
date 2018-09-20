@@ -1,0 +1,95 @@
+/*@package HipPhp*/
+/*@author     Shane Barron <admin@hipphp.com>*/
+
+$body-bg: #FFFFFF;
+$blue: #0078D2;
+
+$theme-colors: (
+"primary": #2F9BC1,
+"danger": #ff4136
+);
+
+$enable-borders:true;
+$enable-shadows:true;
+$enable-gradients:true;
+$grid-gutter-width:8px;
+$border-radius:.8rem;
+$font-size-base:.9rem;
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+$font-family-base: 'Ubuntu', sans-serif;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@import "helpers";
+
+body {
+    padding-bottom:30px;
+}
+
+.navbar {
+    margin-bottom:20px;
+}
+.system_messages_holder {
+    display:none;
+}
+
+ul, li {
+    list-style-type:none;
+}
+
+.media-body p {
+    margin-bottom:0!important;
+}
+
+.btn-xs {
+    padding:0px 3px 1px 3px;
+    font-size:.7em;
+}
+a:hover {
+    cursor:pointer;
+}
+.material-switch > input[type="checkbox"] {
+    display: none;
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative;
+    width: 40px;
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: #ff4136;
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: green;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: green;
+    left: 20px;
+}

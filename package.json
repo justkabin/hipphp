@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+        "bootstrap": "^4.0.0", "datetimepicker": "*", "font-awesome": "*", "ionicons": "*", "jquery": "*", "jquery-ui-bootstrap": "*", "jqueryui": "*", "popper.js": "*", "spectrum-colorpicker": "*", "spinjs": "*", "timeago": "*", "bootstrap-tagsinput": "*", "timepicker": "*", "tinymce": "*", "bootstrap-toggle":"*"
+  }, "name": "hipPhp", "version": "1.0.0", "description": "An easy to use PHP framework for web developers and designers.", "main": "index.php", "repository": "https://github.com/hipPhp/hipPhp.git", "author": "Shane Barron", "license": "UNLICENSED"
+}

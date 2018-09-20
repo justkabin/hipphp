@@ -1,0 +1,368 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HipPhp documentation &#8212; HipPhp .1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="hipphp-documentation">
+<h1>HipPhp documentation<a class="headerlink" href="#hipphp-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>hipPhp® is a PHP framework designed to help developers create Object Oriented Applications, with little code.</p>
+<div class="section" id="requirements">
+<h2>Requirements:<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Apache web server with PHP5.6 or higher.</li>
+<li>MySQL</li>
+</ol>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Download hipPhp</li>
+<li>Extract and upload files to your webserver.</li>
+<li>Rename htaccess.txt to .htaccess.</li>
+<li>Create a folder outside your public html to store site data.</li>
+<li>Edit /engine/settings.php</li>
+</ol>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">define(&#39;SITENAME&#39;, &#39;&#39;);               //      Enter the name of your site here.</span>
+<span class="x">define(&#39;SITEURL&#39;, &#39;&#39;);                //      This will be the URL to your site followed by a /</span>
+<span class="x">define(&#39;SITEPATH&#39;, &#39;&#39;);               //      The path to your index.php file.  (ex. /home/public_html/)</span>
+<span class="x">define(&#39;SITEDATAPATH&#39;, &#39;&#39;);   //      The path to your external data folder.  (ex. /home/data/)</span>
+<span class="x">define(&#39;SITEEMAIL&#39;,&#39;&#39;);               //      This is the email address that system emails will be sent from.</span>
+<span class="x">define(&#39;SITESECRET&#39;,&#39;&#39;);      //      Create a unique key.  Key will be used to identify your site.</span>
+<span class="x">define(&#39;SITELANGUAGE&#39;,&#39;en&#39;);    //    This configures the language of your site.  Defaults to English.</span>
+<span class="x">define(&#39;DBHOST&#39;, &#39;localhost&#39;);        //      Your database host.  Defaults to localhost.</span>
+<span class="x">define(&#39;DBNAME&#39;, &#39;&#39;);         //      Your database name.</span>
+<span class="x">define(&#39;DBUSER&#39;, &#39;&#39;);         //      Your database user name.</span>
+<span class="x">define(&#39;DBPASS&#39;, &#39;&#39;);         //      Your database password.</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>SSH into your server and run “yarn” in your project root folder. Learn about yarn here. <a class="reference external" href="https://yarnpkg.com/en/">https://yarnpkg.com/en/</a></li>
+<li>While SSH’d into your server, run “composer install” in your project root folder.</li>
+</ol>
+</div>
+<div class="section" id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="accesshandler">
+<h3>AccessHandler<a class="headerlink" href="#accesshandler" title="Permalink to this headline">¶</a></h3>
+<p>Creates a system Access Handler.
+Example:</p>
+<p>new AccessHandler(“public”);</p>
+</div>
+<div class="section" id="cache">
+<h3>Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h3>
+<p>Used to store a variable in the system Cache.</p>
+<p>Example:</p>
+<p>$variable = “name”; // The name of the variable to save
+$value = “Shane”; // The value to save in the variable
+$storage = “file”;  // Where to save the variable (“page”, “site”, “session”)</p>
+<p>new Cache($variable,$value,$storage);</p>
+<p>When saved to “page”, the variable is lost on the next page load, and is only available in the current session&lt;br/&gt;
+When saved to “site”, the variable is saved to memcache (if available), and is available to all browser sessions.  If memcache is not available, variable is saved to “file”&lt;br/&gt;
+When saved to “file”, the variable is saved to the filesystem, and is available to all browser sessions.</p>
+</div>
+<div class="section" id="css">
+<h3>CSS<a class="headerlink" href="#css" title="Permalink to this headline">¶</a></h3>
+<p>Adds CSS to the site.</p>
+<p>Example:</p>
+<p>$name = “bootstrap”; // An arbitrary name used to identify the CSS element.
+$location = “<a class="reference external" href="http://www.bootstrap.com/style.css">http://www.bootstrap.com/style.css</a>”; // Location of the CSS.  When using local CSS, point to the file using getSitePath()
+$weight = 10; // Higher weights load later.
+$combine = true;  // Whether or not to combine the CSS into one file.</p>
+<p>new CSS($name,$location,$weight,$combine);</p>
+</div>
+<div class="section" id="footerjs">
+<h3>FooterJS<a class="headerlink" href="#footerjs" title="Permalink to this headline">¶</a></h3>
+<p>Adds Javascript to the site footer.</p>
+<p>Example:</p>
+<p>$name = “bootstrap”; // An arbitrary name used to identify the Javascript element.
+$location = “<a class="reference external" href="http://www.bootstrap.com/script.js">http://www.bootstrap.com/script.js</a>”; // Location of the Javascript.
+$weight = 10; // Higher weights load later.
+$init = true; // When set to true, the system runs an itit function after page load.  See example below:</p>
+<p>new FooterJS($name,$location,$weight,$init);</p>
+<p>Example:
+&lt;pre class=”prettyprint linenums lang-javascript”&gt;
+var javascript = {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>init:function(){</dt>
+<dd>// This runs after page load.</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>};</p>
+</div>
+<div class="section" id="headerjs">
+<h3>HeaderJS<a class="headerlink" href="#headerjs" title="Permalink to this headline">¶</a></h3>
+<p>Adds Javascript to the site header.</p>
+<p>Example:</p>
+<p>$name = “bootstrap”; // An arbitrary name used to identify the Javascript element
+$location = “<a class="reference external" href="http://www.bootstrap.com/javascript.js">http://www.bootstrap.com/javascript.js</a>”; // Location of the Javascript.
+$weight = 10; // Higher weights load later.</p>
+<p>new HeaderJS($name,$location,$weight);</p>
+</div>
+<div class="section" id="menuitem">
+<h3>MenuItem<a class="headerlink" href="#menuitem" title="Permalink to this headline">¶</a></h3>
+<p>Adds an link to a menu.</p>
+<p>Example:</p>
+<dl class="docutils">
+<dt>$params = array(</dt>
+<dd>“name”=&amp;gt;”home”, // An arbitrary name used to identify the menu item
+“page”=&amp;gt;”home”, // The page to visit when the url is clicked
+“menu”=&amp;gt;”header_left”,  // The menu where the link will be placed
+“weight”=&amp;gt;0 // Higher weights load later.</dd>
+</dl>
+<p>);</p>
+<p>new MenuItem($params);</p>
+</div>
+<div class="section" id="systemmessage">
+<h3>SystemMessage<a class="headerlink" href="#systemmessage" title="Permalink to this headline">¶</a></h3>
+<p>Create a new system message.</p>
+<p>Example</p>
+<p>$message = “Your profile has been updated.”; // The system message to display
+$type = “success”; // The class of the message popup.</p>
+<p>new SystemMessage($message,$type);</p>
+</div>
+<div class="section" id="viewextension">
+<h3>ViewExtension<a class="headerlink" href="#viewextension" title="Permalink to this headline">¶</a></h3>
+<p>Extend a view with another view.</p>
+<p>Example:</p>
+<p>$target = “page_elements/header”; // The view to be extended.
+$source = “new_theme/header”; // The view that is extended to the target.</p>
+<p>new ViewExtension($target,$source);</p>
+<blockquote>
+<div><p>&lt;/ul&gt;</p>
+<blockquote>
+<div>Functions</div></blockquote>
+<p>&lt;ul&gt;</p>
+</div></blockquote>
+</div>
+<div class="section" id="getentities">
+<h3>getEntities<a class="headerlink" href="#getentities" title="Permalink to this headline">¶</a></h3>
+<p>Creates an array of entities based on certain criteria.</p>
+<p>Example:</p>
+<dl class="docutils">
+<dt>$params = array(</dt>
+<dd><p class="first">“type”=&amp;gt;”User”, // The type of entity you want to return
+“metadata_name”=&amp;gt;”first_name”, // Optional:  Key to filter by
+“metadata_value”=&amp;gt;”Shane”, // Optional:  Value to filter by
+“operand”=&amp;gt;”=”, // Optional:  Operand to compare key/value combinations
+“metadata_name_value_pairs”=&amp;gt;array( // Optional:  Used if multiple combinations are required</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>array(</dt>
+<dd>“name”=&amp;gt;”first_name”, // Key to filter by
+“value”=&amp;gt;”Shane”, // Value to filter by
+“operand”=&amp;gt;”=” // Optional:  Operand to compare key/value combinations</dd>
+</dl>
+<p>),
+array(</p>
+<blockquote>
+<div>“name”=&amp;gt;”last_name”, // Key to filter by
+“value”=&amp;gt;”Barron”, // Value to filter by
+“operand”=&amp;gt;”=” // Optional: Operand to compare key/value combinations</div></blockquote>
+<p>)</p>
+</div></blockquote>
+<p class="last">),
+“metadata_name_value_pairs_operand”=&amp;gt;”OR” // Optional:  Operand to compare name value pairs</p>
+</dd>
+</dl>
+<p>);</p>
+<p>getEntities($params);</p>
+</div>
+<div class="section" id="getentity">
+<h3>getEntity<a class="headerlink" href="#getentity" title="Permalink to this headline">¶</a></h3>
+<p>Retrieves an entity from the database based on guid or other parameters.</p>
+<p>Example:</p>
+<p>getEntity($guid);</p>
+<p>Can pass a guid, or params as in GetEntities();</p>
+</div>
+<div class="section" id="notifyuser">
+<h3>notifyUser<a class="headerlink" href="#notifyuser" title="Permalink to this headline">¶</a></h3>
+<p>Creates a notification entity used for notifying a user of an action.</p>
+</div>
+<div class="section" id="drawpage">
+<h3>drawPage<a class="headerlink" href="#drawpage" title="Permalink to this headline">¶</a></h3>
+<p>Generates an Boostrap formatted version of passed paramaters.</p>
+</div>
+<div class="section" id="getinput">
+<h3>getInput<a class="headerlink" href="#getinput" title="Permalink to this headline">¶</a></h3>
+<p>Used to get input values from forms.</p>
+</div>
+<div class="section" id="removeviewextension">
+<h3>removeViewExtension<a class="headerlink" href="#removeviewextension" title="Permalink to this headline">¶</a></h3>
+<p>Unextends a view.</p>
+</div>
+<div class="section" id="removemenuitem">
+<h3>removeMenuItem<a class="headerlink" href="#removemenuitem" title="Permalink to this headline">¶</a></h3>
+<p>Removes a link from a menu.</p>
+</div>
+<div class="section" id="gatekeeper">
+<h3>gateKeeper<a class="headerlink" href="#gatekeeper" title="Permalink to this headline">¶</a></h3>
+<p>Prevents non logged in users from viewing a page.</p>
+</div>
+<div class="section" id="reversegatekeeper">
+<h3>reverseGateKeeper<a class="headerlink" href="#reversegatekeeper" title="Permalink to this headline">¶</a></h3>
+<p>Prevents logged in users from viewing a page.</p>
+</div>
+<div class="section" id="classgatekeeper">
+<h3>classGateKeeper<a class="headerlink" href="#classgatekeeper" title="Permalink to this headline">¶</a></h3>
+<p>Used in action handlers to make sure that an object is of a certain class.</p>
+</div>
+<div class="section" id="admingatekeeper">
+<h3>adminGateKeeper<a class="headerlink" href="#admingatekeeper" title="Permalink to this headline">¶</a></h3>
+<p>Prevents non admin users from viewing a page.</p>
+</div>
+<div class="section" id="removecss">
+<h3>removeCSS<a class="headerlink" href="#removecss" title="Permalink to this headline">¶</a></h3>
+<p>Removes CSS from the site.</p>
+</div>
+<div class="section" id="removefooterjs">
+<h3>removeFooterJS<a class="headerlink" href="#removefooterjs" title="Permalink to this headline">¶</a></h3>
+<p>Removes Javascript from the footer.</p>
+</div>
+<div class="section" id="removeheaderjs">
+<h3>removeHeaderJS<a class="headerlink" href="#removeheaderjs" title="Permalink to this headline">¶</a></h3>
+<p>Removes Javascript from the header.</p>
+</div>
+<div class="section" id="pagearray">
+<h3>pageArray<a class="headerlink" href="#pagearray" title="Permalink to this headline">¶</a></h3>
+<p>Used to return parts of the current URL.</p>
+</div>
+<div class="section" id="forward">
+<h3>forward<a class="headerlink" href="#forward" title="Permalink to this headline">¶</a></h3>
+<p>Redirects the site to a certain page.</p>
+</div>
+<div class="section" id="sendemail">
+<h3>sendEmail<a class="headerlink" href="#sendemail" title="Permalink to this headline">¶</a></h3>
+<p>Sends an email.</p>
+</div>
+<div class="section" id="display">
+<h3>display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h3>
+<p>Renders HTML from a view.</p>
+</div>
+<div class="section" id="drawform">
+<h3>drawForm<a class="headerlink" href="#drawform" title="Permalink to this headline">¶</a></h3>
+<p>Renders a form.</p>
+</div>
+<div class="section" id="listentities">
+<h3>listEntities<a class="headerlink" href="#listentities" title="Permalink to this headline">¶</a></h3>
+<p>Renders an HTML list of entities based on paramaters.</p>
+<p>getSiteURL()</p>
+<p>Returns the site’s base URL.</p>
+<p>getSiteName()</p>
+<p>Returns the site’s name.</p>
+<p>getSiteEmail()</p>
+<p>Returns the site’s email.</p>
+<p>getDataPath()</p>
+<p>Returns the path to the site’s data folder.</p>
+<p>getSitePath()</p>
+<p>Returns the path to site’s html base.</p>
+<p>loggedIn()</p>
+<p>Returns true if current user is logged in.  False otherwise.</p>
+<p>getLoggedInUser()</p>
+<p>Returns the current logged in user object.</p>
+<p>getLoggedInUserGuid()</p>
+<p>Returns the current logged in user guid.</p>
+<p>adminLoggedIn()</p>
+<p>Returns true if admin logged in.  False otherwise.</p>
+<p>Vars()</p>
+<p>Used to retrieve variables passed to views.</p>
+<p>addTokenToURL()</p>
+<p>Adds a security token to an action URL.</p>
+<p>isAdmin()</p>
+<p>Checks if a user is an admin.</p>
+<p>currentURL()</p>
+<p>Returns the current site url.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">HipPhp</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Shane Barron.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
