@@ -47,11 +47,11 @@ class MenuItem {
     }
 
     static private function saveMenuItemsToCache($menus) {
-        Cache::set("menus", $menus, "session");
+        Cache::set("menus", $menus, "page");
     }
 
     static private function getMenuItemsFromCache() {
-        $return = Cache::get("menus", "session");
+        $return = Cache::get("menus", "page");
         if ($return) {
             return $return;
         }
